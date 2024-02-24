@@ -1,0 +1,34 @@
+
+<ion-content [fullscreen]="true">
+
+  <app-nav></app-nav>
+
+  <div id="container">
+    <ion-card>
+      <img alt="Mazing" src="../../assets/icon/mazing_logo.png" />
+      <ion-card-header>
+        <ion-card-subtitle>AR / VR</ion-card-subtitle>
+        <ion-card-title>Make Your Dreams Reality</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Here's a small text description for the card content. Nothing more, nothing less.
+      </ion-card-content>
+    </ion-card>
+
+    <div *ngFor="let article of articles">
+      <ion-card>
+        <img src="http://localhost:8080/api/images/{{ article.imageUrl }}" />
+
+        <ion-card-header>
+          <ion-card-title>{{ article.title }}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{ article.description }}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+</ion-content>
