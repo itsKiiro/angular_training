@@ -15,6 +15,7 @@ import { IonHeader,
   IonItem,
   IonList,
 } from '@ionic/angular/standalone';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-nav',
@@ -39,24 +40,29 @@ import { IonHeader,
   ],
 })
 export class NavComponent {
-  constructor() {}
+  constructor(private navCtrl: NavController) {}
 
   navigateToPage(page: string) {
     switch (page) {
         case "home":
             console.log(page);
+            this.navCtrl.navigateForward(`/${page}`);
             break;
         case "about":
             console.log(page);
+            this.navCtrl.navigateForward(`/${page}`);
             break;
         case "settings":
             console.log(page);
+            this.navCtrl.navigateForward(`/${page}`);
             break;
         case "ar":
             console.log(page);
+            this.navCtrl.navigateForward(`/${page}`);
             break;
         case "vr":
             console.log(page);
+            this.navCtrl.navigateForward(`/${page}`);
             break;
     }
   }

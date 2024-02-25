@@ -12,14 +12,14 @@ import { IonHeader,
   IonButtons,
   IonMenuButton
 } from '@ionic/angular/standalone';
-import { NavComponent } from '../components/nav/nav.component';
-import { DataService } from '../services/data.service';
+import { NavComponent } from '../../components/nav/nav.component';
+import { DataService } from '../../services/data.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-about',
+  templateUrl: 'about.page.html',
+  styleUrls: ['about.page.scss'],
   standalone: true,
   imports: [IonHeader, 
     IonToolbar, 
@@ -38,7 +38,7 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [DataService]
 })
-export class HomePage implements OnInit {
+export class AboutPage implements OnInit {
 
   private dataService: DataService;
 
