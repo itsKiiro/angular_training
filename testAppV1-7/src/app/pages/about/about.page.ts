@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonHeader,
   IonToolbar, 
   IonTitle, 
@@ -10,7 +10,9 @@ import { IonHeader,
   IonCardSubtitle,
   IonMenu,
   IonButtons,
-  IonMenuButton
+  IonMenuButton,
+  IonInput,
+  IonButton
 } from '@ionic/angular/standalone';
 import { NavComponent } from '../../components/nav/nav.component';
 import { DataService } from '../../services/data.service';
@@ -34,11 +36,13 @@ import { CommonModule } from '@angular/common';
     IonButtons,
     IonMenuButton,
     NavComponent,
-    CommonModule
+    CommonModule,
+    IonInput,
+    IonButton
   ],
   providers: [DataService]
 })
-export class AboutPage implements OnInit {
+export class AboutPage {
 
   private dataService: DataService;
 
@@ -48,14 +52,11 @@ export class AboutPage implements OnInit {
     this.dataService = dataService;
   }
 
-  ngOnInit() {
-    this.loadArticles();
-  }
-
-  loadArticles() {
-    this.dataService.getArticles().subscribe((data) => {
+  loadArticles(searchTerm: any) {
+    this.dataService.getSearchedArticles(searchTerm).subscribe((data) => {
       this.articles = data;
       console.log(this.articles)
+      console.log(searchTerm)
     })
   }
 

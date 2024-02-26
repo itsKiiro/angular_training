@@ -2,5 +2,27 @@
 
     <app-nav></app-nav>
 
+    <div id="aboutContainer">
+
+        <div id="inputContainer">
+           <ion-input #searchInput id="aboutInput" type="text" label="Search..." label-placement="floating" fill="outline" placeholder="Enter text"></ion-input> 
+           <ion-button (click)="loadArticles(searchInput?.value || '')" id="searchButton">Search</ion-button>
+        </div>
+
+        <div *ngFor="let article of articles">
+            <ion-card>
+              <img src="http://localhost:8080/api/images/{{ article.imageUrl }}" />
+      
+              <ion-card-header>
+                <ion-card-title>{{ article.title }}</ion-card-title>
+              </ion-card-header>
+            
+              <ion-card-content>
+                {{ article.description }}
+              </ion-card-content>
+            </ion-card>
+          </div>
+        
+    </div>
 
 </ion-content>

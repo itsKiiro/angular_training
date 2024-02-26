@@ -11,6 +11,17 @@ router.get("/get/articles/", async (req, res) => {
     }
 })
 
+router.get("/get/searched/articles/:searchTerm", async (req, res) => {
+    try {
+        const searchQuery = req.params.searchTerm;
+        console.log(searchQuery);
+        const articles = await Article.find({ title: { $regex: new RegExp(searchQuery, 'i') } });
+        res.json(articles);
+    } catch (error) {
+        console.error(error)
+    }
+})
+
 
 
 module.exports = router;
